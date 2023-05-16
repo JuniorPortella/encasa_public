@@ -1,0 +1,23 @@
+input, textarea, select, #browser-default{
+    color: #FFF;
+}
+.datepicker-day-button, .datepicker-controls .select-year input, .datepicker-controls .select-month input, .swal-content__input{
+    color: #000 !important;
+}
+
+*:disabled, :disabled+label {
+    color: #FFF !important;
+}
+
+#form_entrega, #div_obss, #recebimentos, #listar_pedidos, #tbl_produto, #select-wrapper{
+    display: none;
+}
+
+select{
+    background-color: transparent;
+    border: none;
+}
+
+option{
+    color: #000;
+}

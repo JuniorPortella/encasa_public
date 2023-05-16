@@ -1,0 +1,10 @@
+input, textarea{
+    color: #FFF;
+}
+.datepicker-day-button, .datepicker-controls .select-year input, .datepicker-controls .select-month input{
+    color: #000 !important;
+}
+
+*:disabled, :disabled+label {
+    color: #FFF !important;
+}

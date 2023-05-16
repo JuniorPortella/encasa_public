@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block 'head' %}
+    <link rel="stylesheet" href="{% static 'produtos/css/produtos.css' %}">
+{% endblock %}
+
+
+{% block 'dashboard' %}
+    <div class="container">
+        <br><br>
+        {% csrf_token %}
+        
+        <div class="row">
+            <div class="input-field col s4 m1">
+                <input name="txt_codigo" id="txt_codigo" type="number" onblur="buscar_produto()" onfocus="clear_fields()">
+                <label for="txt_codigo">Cod</label>
+            </div>
+            <div class="input-field col s8 m5">
+                <input name="txt_descricao" id="txt_descricao" type="text" >
+                <label for="txt_descricao">Descrição</label>
+            </div>
+            <div class="input-field col s5 m2">
+                <input name="txt_valor" id="txt_valor" type="text" >
+                <label for="txt_valor">Valor</label>
+            </div>
+            <div class="input-field col s5 m2">
+                <input name="txt_valorprom" id="txt_valorprom" type="text" >
+                <label for="txt_valorprom">Valor Promoção</label>
+            </div>
+            <div class="input-field col s2 m2 center">
+                <button class="btn green" id="add_produto" onclick="Salvar()">+</button>
+            </div>
+        </div>
+        <div class="row" style="height: 500px; overflow: scroll;">
+            <table class="striped highlight responsive-table" id="table" >
+                <thead>
+                    <tr>
+                        <th onclick="ordenar(1)" style="cursor: pointer;">Cod</th>
+                        <th onclick="ordenar(2)"  style="cursor: pointer;">Descricao</th>
+                        <th>Valor</th>
+                        <th>Valor Promoção</th>
+                        <th>Ações</th>
+                        <th></th>
+                    </tr>
+                  </thead>
+          
+                  <tbody id="tbody">
+                      {% for produto in produtos %}
+                          <tr id="{{produto.id}}">
+                              <td>{{produto.codigo}}</td>
+                              <td>{{produto.descricao}}</td>
+                              <td>{{produto.valor}}</td>
+                              <td>{{produto.valor_prom}}</td>
+                              <td>
+                                <button onclick="alterar_produto('{{produto.id}}')" value="{{produto.id}}" id="alterar_produto" class="btn blue"><i class='bx bx-edit' ></i></button>
+                              </td>
+                              <td>
+                                <button onclick="deletar_produto('{{produto.id}}')" value="{{produto.id}}" id="deletar_produto" class="btn red"><i class='bx bx-trash' ></i></button>
+                              </td>
+                          </tr>
+                      {% endfor %}
+                  </tbody>
+        
+                </table>
+                    
+        </div>
+
+
+    </div>
+    <br>
+    
+    <script hidden src="{% static 'produtos/js/produtos.js' %}"></script>
+{% endblock %}

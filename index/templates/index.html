@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block 'head' %}
+    <link rel="stylesheet" href="{% static 'index/css/index.css' %}">
+{% endblock %}
+
+
+{% block 'dashboard' %}
+    <div class="container">
+        <br>
+        {% csrf_token %}
+        <div class="row" style="margin-top: 150px;">
+            <div class="col s12 center">    
+                <div class="input-field col s12 m4 push-m4">
+                    <input name="txt_login" id="txt_login" type="text">
+                    <label for="txt_login">Login</label>
+                </div>
+            </div>
+        </div>
+        <div class="row" >
+            <div class="col s12 center">
+                <div class="input-field col s12 m4 push-m4">
+                    <input name="txt_senha" id="txt_senha" type="password">
+                    <label for="txt_senha">Senha</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row ">
+            <div class="input-field col s12 center">
+                <button class="btn green" id="entrar" onclick="entrar()">Entrar</button>
+            </div>
+        </div>
+    </div>
+    <br>
+    
+    <script hidden src="{% static 'index/js/index.js' %}"></script>
+{% endblock %}

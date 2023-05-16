@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block 'head' %}
+    <link rel="stylesheet" href="{% static 'clientes/css/clientes.css' %}">
+{% endblock %}
+
+
+{% block 'dashboard' %}
+    <div class="container">
+        <br><br>
+        {% csrf_token %}
+        <div class="row">
+            <div class="input-field col s5">
+                <input name="txt_fone" id="txt_fone" type="text"  onblur="buscar_cliente()" ondblclick="clear_fields()" value="{{fone}}">
+                <label for="txt_fone">Telefone</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input name="txt_nome" name="txt_nome" id="txt_nome" type="text" >
+                <label for="txt_nome">Nome</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12 m4">
+                <label for="txt_date">Aniversario</label>
+                <input name="txt_date" id="txt_date" type="text" class="datepicker">
+            </div>
+            <div class="input-field col s12 m8">
+                <label for="txt_email">E-mail</label>
+                <input name="txt_email" id="txt_email" type="text" >
+            </div>
+        </div>
+        <div class="row" >
+            <div class="input-field col s4 m3">
+                <input name="txt_cep" id="txt_cep" type="text"  onblur="busca_cep()">
+                <label for="txt_cep">CEP</label>
+            </div>
+            <div class="input-field col s8 m6">
+                <input name="txt_rua" id="txt_rua" type="text" >
+                <label for="txt_rua">Rua</label>
+            </div>
+            <div class="input-field col s4 m3">
+                <input name="txt_numero" id="txt_numero" type="text" >
+                <label for="txt_numero">Numero</label>
+            </div>
+            <div class="input-field col s8 m6">
+                <input name="txt_bairro" id="txt_bairro" type="text" >
+                <label for="txt_bairro">Bairro</label>
+            </div>
+            <div class="input-field col s6 m6">
+                <input name="txt_cidade" id="txt_cidade" type="text" >
+                <label for="txt_cidade">Cidade</label>
+            </div>
+            <div class="input-field col s6 m4">
+                <input name="txt_comp" id="txt_comp" type="text" >
+                <label for="txt_comp">Complemento</label>
+            </div>
+            <div class="input-field col s8 m5">
+                <textarea name="txt_obs" id="txt_obs" class="materialize-textarea"></textarea>
+                <label for="txt_obs">Observacao</label>
+            </div>
+            <div class="input-field col s4 m3">
+                <input name="txt_entrega" id="txt_entrega" type="text" >
+                <label for="txt_entrega">Taxa entrega</label>
+            </div>
+        </div>
+        <div class="row center">
+            <button class="btn green" onclick="Salvar()" name="action">Salvar</button>
+        </div>   
+        
+        <br>
+    </div>
+    
+    <script hidden src="{% static 'clientes/js/clientes.js' %}"></script>
+{% endblock %}

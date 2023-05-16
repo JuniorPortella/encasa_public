@@ -1,0 +1,25 @@
+input, textarea, select{
+    color: #FFF;
+}
+.datepicker-day-button, .datepicker-controls .select-year input, .datepicker-controls .select-month input{
+    color: #000 !important;
+}
+
+*:disabled, :disabled+label {
+    color: #FFF !important;
+}
+
+input[type=number]::-webkit-inner-spin-button { 
+    -webkit-appearance: none;
+    
+}
+input[type=number] { 
+   -moz-appearance: textfield;
+   appearance: textfield;
+
+}
+
+#placeholder { width: 250px; height: 150px; }
+.legend table, .legend > div { height: 82px !important; opacity: 1
+!important; left: 170px; top: 10px; width: 116px !important; }
+.legend table { border: 1px solid #555; padding: 5px; }

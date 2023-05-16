@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block 'head' %}
+    <link rel="stylesheet" href="{% static 'funcionarios/css/funcionarios.css' %}">
+{% endblock %}
+
+
+{% block 'dashboard' %}
+    <div class="container">
+        <br><br>
+        {% csrf_token %}
+        
+        <div class="row">
+            <div class="input-field col s4 m5">
+                <input name="txt_nome" id="txt_nome" type="text" ondblclick="clear_fields()">
+                <label for="txt_nome">Nome</label>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="input-field col s6 m4">
+                <input name="txt_login" id="txt_login" type="text" >
+                <label for="txt_login">Login</label>
+            </div>
+            <div class="input-field col s6 m4">
+                <input name="txt_senha" id="txt_senha" type="password" >
+                <label for="txt_senha">Senha</label>
+            </div>
+            
+            <div class="input-field col s6 m4 center">
+                
+                <div class="switch">
+                    <label>Administrador</label><br>
+
+                    <label>
+                      Off
+                      <input type="checkbox" id="mySwitch">
+                      <span class="lever"></span>
+                      On
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="row ">
+            <div class="input-field col s12 center">
+                <button class="btn green" id="salvar" onclick="salvar()">Salvar</button>
+            </div>
+        </div>
+        
+
+        <div class="row"  id="tbl_func" name="tbl_func" >
+            <table class="striped highlight responsive-table" >
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Login</th>
+                        <th>Ações</th>
+                        <th></th>
+                    </tr>
+                </thead>
+        
+                <tbody>
+                    {% for funcionario in funcionarios %}
+                        <tr id="{{funcionario.id}}">
+                            <td>{{funcionario.nome}}</td>
+                            <td>{{funcionario.login}}</td>
+                            <td style="display: none;">{{funcionario.senha}}</td>
+                            <td style="display: none;">{{funcionario.adm}}</td>
+                            <td>
+                              <button onclick="alterar('{{funcionario.id}}')" value="{{funcionario.id}}" id="alterar_func" class="btn blue"><i class='bx bx-edit' ></i></button>
+                            </td>
+                            <td>
+                              <button onclick="deletar('{{funcionario.id}}','{{funcionario.nome}}')" value="{{funcionario.id}}" id="deletar_func" class="btn red"><i class='bx bx-trash' ></i></button>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+                    
+        </div>
+    </div>
+    <br>
+    
+    <script hidden src="{% static 'funcionarios/js/funcionarios.js' %}"></script>
+{% endblock %}

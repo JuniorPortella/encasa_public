@@ -1,0 +1,10 @@
+.sidebar{
+    display: none !important;
+}
+.home-section{
+    left: 0 !important;
+    width: auto !important;
+}
+input, textarea, select{
+    color: #FFF;
+}

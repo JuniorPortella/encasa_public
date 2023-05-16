@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block 'head' %}
+    <link rel="stylesheet" href="{% static 'bairros/css/bairros.css' %}">
+{% endblock %}
+
+
+{% block 'dashboard' %}
+    <div class="container">
+        <br><br>
+        {% csrf_token %}
+        <div class="row">
+            <table class="striped highlight responsive-table" id="table" >
+                <thead>
+                  <tr>
+                      <th onclick="ordenar(1)" style="cursor: pointer;">Bairro</th>
+                      <th onclick="ordenar(2)"  style="cursor: pointer;">Valor</th>
+                      <th>Alterar</th>
+                  </tr>
+                </thead>
+        
+                <tbody id="tbody">
+                    {% for bairro in bairros %}
+                        <tr>
+                            <td>{{bairro.bairro}}</td>
+                            <td>{{bairro.taxa}}</td>
+                            <td><button onclick="alterar_bairro('{{bairro.id}}')" value="{{bairro.id}}" id="alterar_bairro" class="btn blue"><i class='bx bx-edit' ></i></button></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+              </table>
+        </div>
+        <br>
+    </div>
+    
+    <script hidden src="{% static 'bairros/js/bairros.js' %}"></script>
+{% endblock %}

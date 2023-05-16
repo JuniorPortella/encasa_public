@@ -1,0 +1,100 @@
+{% load static %}
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="{% static 'general/css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'general/css/general.css' %}">
+    <link rel="stylesheet" href="{% static 'general/css/materialize.css' %}">
+    <link rel="stylesheet" href="{% static 'general/css/materialize.min.css' %}">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    {% block 'head' %}{% endblock %}
+
+    <title>{% block 'title' %}{% endblock %}</title>
+  </head>
+  <body style="background-color: #2A2A2A">
+    <div class="sidebar" id="sidebar">
+        <div class="logo-details">
+            <div class="logo_name">ENCASA</div>
+            <i class='bx bx-menu' id="btn" ></i>
+        </div>
+        <ul class="nav-list">
+          <li>
+            <a href="{% url 'home'%}">
+              <i class='bx bx-grid-alt'></i>
+              <span class="links_name">Página inicial</span>
+            </a>
+            <span class="tooltip">Página inicial</span>
+          </li>
+          <li>
+          <a href="{% url 'clientes'%}">
+            <i class='bx bx-user' ></i>
+            <span class="links_name">Clientes</span>
+          </a>
+          <span class="tooltip">Clientes</span>
+        </li>
+        <li>
+          <a href="{% url 'motoqueiro'%}">
+            <i class='bx bx-cycling' ></i>
+            <span class="links_name">Motoqueiro</span>
+          </a>
+          <span class="tooltip">Motoqueiro</span>
+        </li>
+        <li>
+          <a href="{% url 'bairros'%}">
+            <i class='bx bx-map' ></i>
+            <span class="links_name">Bairros</span>
+          </a>
+          <span class="tooltip">Bairros</span>
+        </li>
+        <li>
+          <a href="{% url 'produtos'%}">
+            <i class='bx bxs-pizza' ></i>
+            <span class="links_name">Produtos</span>
+          </a>
+          <span class="tooltip">Produtos</span>
+        </li>
+        <li>
+          <a href="{% url 'contabilidade'%}">
+            <i class='bx bx-money' ></i>
+            <span class="links_name">Contabilidade</span>
+          </a>
+          <span class="tooltip">Contabilidade</span>
+        </li>
+        <li>
+          <a href="{% url 'funcionarios'%}">
+            <i class='bx bx-user-check' ></i>
+            <span class="links_name">Funcionários</span>
+          </a>
+          <span class="tooltip">Funcionários</span>
+        </li>
+        <li>
+          <a onclick="sair_sistema()">
+            <i class='bx bx-exit' ></i>
+            <span class="links_name">Sair</span>
+          </a>
+          <span class="tooltip">Sair</span>
+        </li>
+        </ul>
+      </div>
+      
+      <section class="home-section">
+          {% block 'dashboard'%}
+          {% endblock %}
+      </section>
+
+      {% block 'body' %}
+      {% endblock %}
+      
+    <script src="{% static 'general/js/base.js' %}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="{% static 'general/js/materialize.js' %}"></script>
+    <script src="{% static 'general/js/materialize.min.js' %}"></script>
+    <script src="{% static 'general/js/functions.js' %}"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    
+</body>
+</html>
